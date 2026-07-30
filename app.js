@@ -30,12 +30,15 @@ function transactionhistory() {
     }
 }
 
-let inpamount = Number(prompt("Enter your amount"))
+let inpamount = Number(prompt("Enter your deposit amount"))
 inpamount = parseInt(inpamount)
 
 do {
-    alert("eNTER VALID AMOUNT")
-    inpamount = Number(prompt("Enter your amount"))
+
+    if(isNaN(inpamount) || inpamount === 0 || inpamount < 0){
+        alert("ENTER VALID AMOUNT")
+        inpamount = Number(prompt("Enter your deposit amount"))
+    }
 
 } while (isNaN(inpamount) || inpamount === 0 || inpamount < 0);
 
@@ -47,8 +50,9 @@ inpwithdraw = parseInt(inpwithdraw)
 
 
 do {
+    
     if (isNaN(inpwithdraw) || inpwithdraw === 0 || inpwithdraw < 0) {
-        alert("Please Enter Withdraw a Valid amount!")
+        alert("Please Enter a Valid Withdraw amount!")
         inpwithdraw = Number(prompt("Enter Withdraw amount"))
     }
     else if (inpwithdraw > balance) {
